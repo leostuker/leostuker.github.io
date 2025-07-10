@@ -22,6 +22,7 @@ header {
 header h1 {
     color: #FFD700; /* Cor dos links do cabeçalho (branca) */
     margin: 0; /* Remove margem padrão do h1 para melhor alinhamento */
+	cursor: default; /* Adiciona esta linha para manter o cursor como seta */
 }
 
 header a {
@@ -48,6 +49,7 @@ nav ul li a:hover {
     color: #FFD700; /* Cor de fundo ao passar o mouse */
     border-radius: 4px; /* Bordas arredondadas ao passar o mouse */
     text-decoration: none; /* Garante que o sublinhado não apareça novamente aqui */
+	transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 main {
@@ -59,16 +61,22 @@ main {
 }
 
 main h2 {
-    color: #FFD700; /* Cor do seu amarelo */
+    color: #333; /* Cor do seu amarelo */
     text-align: center; /* Centraliza o título */
     margin-bottom: 1.5rem; /* Espaço abaixo do título */
-    font-size: 2em; /* Ou um valor fixo em rem, por exemplo: 2.2rem */
+    font-size: 2rem; /* Ou um valor fixo em rem, por exemplo: 2.2rem */
     padding-bottom: 0.5rem; /* Um pouco de espaço interno na parte inferior */
-    border-bottom: 2px solid #eee; /* Uma linha para destacar */
+    border-bottom: 2px solid #FFD700; /* Uma linha para destacar */
 }
 
 main p {
     text-align: justify; /* Justifica o texto dos parágrafos */
+	font-size: 1.1rem; /* Ou um valor fixo em rem, por exemplo: 2.2rem */
+}
+
+footer {
+	text-align: center;
+	
 }
 
 @media (max-width: 768px) {
@@ -95,7 +103,8 @@ main p {
 	
 	nav ul li a:hover {
 		color: #FFD700; /* Cor de fundo ao passar o mouse */
-		background-color: #333; /* Fundo branco para destacar do header amarelo */
+		background-color: #444; /* Fundo branco para destacar do header amarelo */
 		text-decoration: none; /* Garante que o sublinhado não apareça novamente aqui */
+		transition: color 0.3s ease, background-color 0.3s ease;
 	}
 }
