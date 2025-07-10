@@ -9,15 +9,10 @@ body {
     color: #333;
 }
 
-body p {
-    text-align: justify; /* Justifica o texto dos parágrafos */
-}
-
-
 /* --- Estilos para o Cabeçalho --- */
 header {
-    background-color: #FFD700; /* Cor de fundo amarela para o cabeçalho */
-    color: #333; /* Cor do texto padrão do cabeçalho */
+    background-color: #333; /* Cor de fundo amarela para o cabeçalho */
+    color: #e0e0e0; /* Cor do texto padrão do cabeçalho */
     padding: 1rem 2rem; /* Adicionado padding lateral para respiro */
     display: flex; /* ATIVAR FLEXBOX NO HEADER */
     justify-content: space-between; /* Distribui os itens: h1 à esquerda, nav à direita */
@@ -25,19 +20,13 @@ header {
 }
 
 header h1 {
+    color: #FFD700; /* Cor dos links do cabeçalho (branca) */
     margin: 0; /* Remove margem padrão do h1 para melhor alinhamento */
-    padding-bottom: 1.8rem; /* Espaçamento abaixo do título */
-	color: #333; /* Cor do texto amarela */
 }
 
 header a {
-    color: #333; /* Cor dos links do cabeçalho (branca) */
+    color: #e0e0e0; /* Cor dos links do cabeçalho (branca) */
     text-decoration: none; /* Remove o sublinhado padrão dos links */
-}
-
-header a:hover {
-    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse sobre os links */
-	color: #ffe449; /* Cor do texto e0e0e0 ao passar o mouse */
 }
 
 /* --- Estilos para a Navegação --- */
@@ -51,13 +40,12 @@ nav ul {
 }
 
 nav ul li a {
-    padding: 0.5rem 1rem; /* Adiciona padding interno aos links para aumentar a área clicável */
+    padding: 0.25rem 0.5rem; /* Adiciona padding interno aos links para aumentar a área clicável */
     display: block; /* Faz o link ocupar todo o espaço do padding */
-    transition: background-color 0.5s ease; /* Adiciona uma transição suave ao passar o mouse */
 }
 
 nav ul li a:hover {
-    background-color: #555; /* Cor de fundo ao passar o mouse */
+    color: #FFD700; /* Cor de fundo ao passar o mouse */
     border-radius: 4px; /* Bordas arredondadas ao passar o mouse */
     text-decoration: none; /* Garante que o sublinhado não apareça novamente aqui */
 }
@@ -79,6 +67,10 @@ main h2 {
     border-bottom: 2px solid #eee; /* Uma linha para destacar */
 }
 
+main p {
+    text-align: justify; /* Justifica o texto dos parágrafos */
+}
+
 @media (max-width: 768px) {
     header {
         flex-direction: column; /* Altera a direção dos itens flex para coluna (empilha h1 e nav) */
@@ -88,15 +80,22 @@ main h2 {
     header h1 {
         margin-bottom: 0rem; /* Adiciona espaço abaixo do título para separar da nav */
         font-size: 1.5rem; /* Reduz o tamanho do título em telas menores */
+		padding-bottom: 1rem; /* Espaçamento abaixo do título */
+
     }
 
 	nav ul li a {
         font-size: 1rem;
-        padding: 0.4rem 0.8rem; /* Aumenta o padding para dar mais "corpo" ao botão */
+        padding: 0.2rem 0.4rem; /* Aumenta o padding para dar mais "corpo" ao botão */
         font-weight: bold;
-/*        border: 2px solid #333; /* Adiciona uma borda sutil */
         border-radius: 4px; /* Borda mais arredondada para parecer um pílula/botão */
-        background-color: #ffe768; /* Fundo branco para destacar do header amarelo */
+        background-color: #FFD700; /* Fundo branco para destacar do header amarelo */
         color: #333; /* Texto escuro no fundo branco */ 
     }
+	
+	nav ul li a:hover {
+		color: #FFD700; /* Cor de fundo ao passar o mouse */
+		background-color: #333; /* Fundo branco para destacar do header amarelo */
+		text-decoration: none; /* Garante que o sublinhado não apareça novamente aqui */
+	}
 }
