@@ -1,205 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leão Bordado</title>
-    <link rel="icon" type="image/ico" href="icon.ico"> 
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilos básicos para o corpo da página */
-        body {
-            font-family: 'Ubuntu', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4; /* Cinza claro para o fundo */
-            color: #333; /* Cinza escuro para o texto padrão */
-            line-height: 1.6;
-        }
-
-        /* Estilos para o cabeçalho (topo, para o logo e navegação) */
-        header {
-            background-color: #333; /* Cinza escuro */
-            padding: 15px 30px;
-            display: flex; /* Usamos flexbox para alinhar logo e navegação */
-            justify-content: space-between; /* Espaça os itens nas extremidades */
-            align-items: center; /* Alinha verticalmente no centro */
-            color: #f4f4f4; /* Cor do texto do logo */
-        }
-
-        header .logo {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #FFD700; /* Amarelo para o logo "Leão Bordado" */
-            text-decoration: none; /* Remove sublinhado do link, se for o caso */
-        }
-
-        /* Estilos para a barra de navegação no cabeçalho */
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-left: 25px; /* Espaço entre os itens da navegação */
-        }
-
-        nav ul li a {
-            color: #f4f4f4; /* Cinza claro para os links */
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.05em;
-            transition: color 0.3s ease;
-            padding: 5px 0; /* Adiciona um pouco de padding para área de clique */
-        }
-
-        nav ul li a:hover {
-            color: #FFD700; /* Amarelo vibrante ao passar o mouse */
-        }
-        
-        /* Estilos para a seção Hero (o banner principal) */
-        .hero-banner {
-            background-image: url('https://i.imgur.com/4oRFKp6.jpeg '); /* IMAGEM DE FUNDO */
-            background-size: cover; /* A imagem cobre todo o espaço */
-            background-position: center; /* Centraliza a imagem */
-            color: #fff; /* Cor do texto branco para o banner */
-            text-align: center;
-            padding: 100px 20px; /* Preenchimento generoso */
-            position: relative; /* Para posicionamento do slogan */
-        }
-
-        .hero-banner::before { /* Overlay escuro sobre a imagem para contraste */
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* Preto com 40% de opacidade */
-            z-index: 1; /* Garante que o overlay fique abaixo do conteúdo do banner */
-        }
-
-        .hero-banner .content {
-            position: relative; /* Para o conteúdo ficar acima do overlay */
-            z-index: 2;
-        }
-
-        .hero-banner h2 {
-            font-size: 4em; /* Tamanho do nome no banner */
-            margin-bottom: 10px;
-            color: #fff; /* Nome em branco */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para destacar o texto */
-            letter-spacing: 3px; /* Mais espaçamento para o nome */
-        }
-
-        .hero-banner .line-divider {
-            width: 250px; /* Largura da linha amarela */
-            height: 5px; /* Espessura da linha */
-            background-color: #FFD700; /* Cor amarela */
-            margin: 0 auto 20px auto; /* Centraliza e adiciona margem inferior */
-            border-radius: 2px; /* Cantos levemente arredondados */
-        }
-
-        .hero-banner .slogan {
-            background-color: #FFD700; /* Fundo amarelo para o slogan */
-            color: #333; /* Texto cinza escuro no slogan */
-            padding: 15px 20px;
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-top: 50px; /* Espaço entre o banner e o slogan */
-        }
-
-        /* Estilos para o conteúdo principal */
-        main {
-            padding: 40px 20px; /* Mais preenchimento */
-            max-width: 900px;
-            margin: 40px auto; /* Mais margem */
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
-            border-radius: 10px;
-        }
-
-        main h2 {
-            color: #333; /* Títulos das seções em cinza escuro */
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 2.2em;
-            border-bottom: 2px solid #FFD700; /* Linha de divisão amarela */
-            padding-bottom: 10px;
-            text-transform: uppercase; /* Títulos em maiúsculas */
-        }
-
-        .content-section {
-            margin-bottom: 30px;
-            padding: 25px; /* Mais preenchimento */
-            background-color: #f9f9f9;
-            border-left: 5px solid #FFD700;
-            border-radius: 5px;
-            line-height: 1.8; /* Mais espaçamento para o texto */
-        }
-
-        .content-section p {
-            font-size: 1.1em;
-            color: #555;
-        }
-
-        /* Estilos para o rodapé */
-        footer {
-            background-color: #333;
-            color: #f4f4f4;
-            text-align: center;
-            padding: 2rem 0; /* Mais preenchimento */
-            margin-top: 50px;
-            font-size: 0.9em;
-        }
-        
-        footer a {
-            color: #FFD700; /* Links no rodapé em amarelo */
-            text-decoration: none;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <a href="index.html" class="logo">Leão Bordado</a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Página inicial</a></li>
-                <li><a href="#hobbies">Fotografias</a></li> <li><a href="#portfolio">Códigos</a></li> </ul>
-        </nav>
-    </header>
-
-    <section class="hero-banner">
-        <div class="content">
-            <h2>LEONARDO STÜKER  绣段勇狮</h2>
-            <div class="line-divider"></div>
-        </div>
-    </section>
-
-    <main>
-        <div class="content-section" id="objetivo-site">
-            <h2>Bem-vindo(a) ao Meu Espaço!</h2>
-            <p>Este site é um projeto pessoal onde compartilho minhas paixões e aprendizados. Você encontrará desde projetos criativos e hobbies que me inspiram, até um panorama do meu **portfólio acadêmico**, destacando trabalhos e conquistas que moldaram minha trajetória.</p>
-            <p>É uma jornada contínua de aprendizado e expressão, e estou feliz em compartilhar um pouco dela com você. Explore e sinta-se à vontade para entrar em contato!</p>
-        </div>
-
-        <div class="content-section" id="sobre-mim">
-            <h2>Sobre Mim</h2>
-            <p>Olá! Sou Leonardo Stüker, e a mente por trás deste "Leão Bordado". Sou uma pessoa apaixonada por [mencione alguns interesses ou características, ex: aprender coisas novas, desafios criativos, tecnologia e arte]. Acredito que a combinação de hobbies e conhecimento acadêmico nos torna indivíduos mais completos e versáteis.</p>
-            <p>Minha curiosidade me leva a explorar diversas áreas, e é isso que busco refletir aqui. [Opcional: adicione uma frase curta sobre sua formação ou área de estudo principal].</p>
-        </div>
-
-        </main>
-
-    <footer>
-        <p>Email: <a href="mailto:contato@leonardo.stuker.nom.br">contato@leonardo.stuker.nom.br</a> | Telefone/WhatsApp: <a href="https://wa.me/5551989313313" target="_blank">(51) 989-313-313</a></p>
-        <p>&copy; 2025 Leonardo Stüker. Todos os direitos reservados.</p>
-    </footer>
-</body>
-</html>
+	<head>
+		<title>Leão Bordado</title>
+		<link rel="icon" href="icon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Este site é um projeto pessoal onde compartilho meus hobbies e aprendizados, abrangendo desde projetos despretensiosos até trabalhos acadêmicos.">
+		<meta name="author" content="Leonardo Sander Stüker">
+		</head>
+	<body>
+		<header>
+			<h1>Leonardo Stüker</h1>
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="fotos.html">Fotografias</a></li>
+					<li><a href="codes.html">Codigos</a></li>
+					</ul>
+				</nav>
+			</header>
+		<main>
+			<section>
+				<h2>Bem-vindo(a) ao Meu Espaço!</h2>
+				<p>Este site é um projeto pessoal onde compartilho meus hobbies e aprendizados, abrangendo desde projetos despretensiosos até trabalhos acadêmicos.</p>
+				<p>É um projeto que nasce de uma vontade antiga de compartilhar as coisas aleatórias que faço em um espaço próprio.</p>
+				</section>
+			</main>
+		<footer>
+			<p>&copy; 2025 Leonardo Stüker. Todos os direitos reservados.</p>
+			</footer>
+		</body>
+	</html>

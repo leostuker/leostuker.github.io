@@ -1,0 +1,102 @@
+/* style.css */
+
+/* Estilos para o corpo da página */
+body {
+    font-family: Ubuntu, sans-serif; /* Usando a fonte Ubuntu que você importou */
+    margin: 0;
+    line-height: 1.6;
+    background-color:#e0e0e0;
+    color: #333;
+}
+
+body p {
+    text-align: justify; /* Justifica o texto dos parágrafos */
+}
+
+
+/* --- Estilos para o Cabeçalho --- */
+header {
+    background-color: #FFD700; /* Cor de fundo amarela para o cabeçalho */
+    color: #333; /* Cor do texto padrão do cabeçalho */
+    padding: 1rem 2rem; /* Adicionado padding lateral para respiro */
+    display: flex; /* ATIVAR FLEXBOX NO HEADER */
+    justify-content: space-between; /* Distribui os itens: h1 à esquerda, nav à direita */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+}
+
+header h1 {
+    margin: 0; /* Remove margem padrão do h1 para melhor alinhamento */
+    padding-bottom: 1.8rem; /* Espaçamento abaixo do título */
+	color: #333; /* Cor do texto amarela */
+}
+
+header a {
+    color: #333; /* Cor dos links do cabeçalho (branca) */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+}
+
+header a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse sobre os links */
+	color: #ffe449; /* Cor do texto e0e0e0 ao passar o mouse */
+}
+
+/* --- Estilos para a Navegação --- */
+nav ul {
+    list-style: none; /* Remove os marcadores de lista (bolinhas) */
+    margin: 0; /* Remove margens padrão da ul */
+    padding: 0; /* Remove paddings padrão da ul */
+    display: flex; /* Transforma a lista em um contêiner flex */
+    gap: 1.5rem; /* Adiciona espaçamento entre os itens da lista */
+	font-weight: bold;
+}
+
+nav ul li a {
+    padding: 0.5rem 1rem; /* Adiciona padding interno aos links para aumentar a área clicável */
+    display: block; /* Faz o link ocupar todo o espaço do padding */
+    transition: background-color 0.5s ease; /* Adiciona uma transição suave ao passar o mouse */
+}
+
+nav ul li a:hover {
+    background-color: #555; /* Cor de fundo ao passar o mouse */
+    border-radius: 4px; /* Bordas arredondadas ao passar o mouse */
+    text-decoration: none; /* Garante que o sublinhado não apareça novamente aqui */
+}
+
+main {
+    padding: 2rem; /* Adiciona espaçamento interno */
+    max-width: 800px; /* Define uma largura máxima para o conteúdo para melhor leitura */
+    margin: 2rem auto; /* Centraliza o bloco main na página */
+    background-color: #cccccc; /* Fundo branco para o conteúdo principal */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+main h2 {
+    color: #FFD700; /* Cor do seu amarelo */
+    text-align: center; /* Centraliza o título */
+    margin-bottom: 1.5rem; /* Espaço abaixo do título */
+    font-size: 2em; /* Ou um valor fixo em rem, por exemplo: 2.2rem */
+    padding-bottom: 0.5rem; /* Um pouco de espaço interno na parte inferior */
+    border-bottom: 2px solid #eee; /* Uma linha para destacar */
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Altera a direção dos itens flex para coluna (empilha h1 e nav) */
+        padding: 1rem; /* Ajusta o padding do header para telas menores */
+    }
+
+    header h1 {
+        margin-bottom: 0rem; /* Adiciona espaço abaixo do título para separar da nav */
+        font-size: 1.5rem; /* Reduz o tamanho do título em telas menores */
+    }
+
+	nav ul li a {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem; /* Aumenta o padding para dar mais "corpo" ao botão */
+        font-weight: bold;
+/*        border: 2px solid #333; /* Adiciona uma borda sutil */
+        border-radius: 4px; /* Borda mais arredondada para parecer um pílula/botão */
+        background-color: #ffe768; /* Fundo branco para destacar do header amarelo */
+        color: #333; /* Texto escuro no fundo branco */ 
+    }
+}
