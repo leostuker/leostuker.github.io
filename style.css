@@ -4,6 +4,7 @@ body {
 	line-height: 1.6;
 	background-color:#e0e0e0;
 	color: #333;
+	padding-top: 5rem;
 }
 
 header {
@@ -74,6 +75,7 @@ main {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-top: 5rem;
 }
 
 .hero-banner::before {
@@ -150,9 +152,14 @@ footer a {
 }
 
 @media (max-width: 768px) {
+	body {
+		padding-top: 8rem; /* O header em mobile está mais alto, então precisa de mais padding */
+	}
+	
 	header {
 		flex-direction: column;
 		padding: 1rem;
+		
 	}
 
 	header h1 {
@@ -168,11 +175,13 @@ footer a {
         	border-radius: 4px;
 	}
 	
+	
 	.hero-banner h2 {
 		font-size: 2.5rem;
 	}
 
 	.hero-banner {
         	padding: 1rem 1rem;
+			margin-top: 8rem;
     	}
 }
