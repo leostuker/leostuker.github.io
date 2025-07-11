@@ -13,6 +13,7 @@ header {
 	display: flex; 
 	justify-content: space-between;
 	align-items: center; 
+	position: fixed;
 }
 
 header h1 {
@@ -20,8 +21,8 @@ header h1 {
 	margin: 0;
 }
 
-header a {
-	color: inherit;
+header h1 a {
+	color: FFD700;
 	text-decoration: none; 
 	cursor: default; 
 }

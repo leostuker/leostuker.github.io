@@ -1,15 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM completamente carregado. Tentando carregar fragmentos...');
 
     const headerPlaceholder = document.getElementById('header-placeholder');
     const footerPlaceholder = document.getElementById('footer-placeholder');
-
-    if (!headerPlaceholder) {
-        console.error('ERRO: Elemento com ID "header-placeholder" não encontrado no HTML.');
-    }
-    if (!footerPlaceholder) {
-        console.error('ERRO: Elemento com ID "footer-placeholder" não encontrado no HTML.');
-    }
 
     // Carregar Header
     fetch('header.html')
@@ -23,10 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(html => {
             if (headerPlaceholder) {
                 headerPlaceholder.innerHTML = html; // Insere o HTML no placeholder
-                console.log('Header carregado e injetado com sucesso.');
             }
         })
-        .catch(error => console.error('Erro ao carregar ou injetar o header:', error));
 
     // Carregar Footer
     fetch('footer.html')
@@ -40,8 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(html => {
             if (footerPlaceholder) {
                 footerPlaceholder.innerHTML = html; // Insere o HTML no placeholder
-                console.log('Footer carregado e injetado com sucesso.');
             }
         })
-        .catch(error => console.error('Erro ao carregar ou injetar o footer:', error));
 });
