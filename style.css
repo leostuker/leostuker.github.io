@@ -106,11 +106,11 @@ main {
 }
 
 article {
-    padding: 2rem; 
-    max-width: 800px; 
-    margin: 2rem auto; 
-    background-color: #cccccc;
-    border-radius: 4px;
+	padding: 2rem; 
+	max-width: 800px; 
+	margin: 2rem auto; 
+	background-color: #cccccc;
+	border-radius: 4px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
