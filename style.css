@@ -64,7 +64,7 @@ main {
 	background-image: url('https://i.imgur.com/l71j8GP.jpeg');
 	background-size: cover;
 	background-position: center;
-	color: #ffd700;
+	color: #FFD700;
 	padding: 2rem 2rem;
 	position: relative;
 	overflow: hidden;
@@ -87,7 +87,7 @@ main {
 }
 
 .hero-banner h2 {
-	color: #ffd700;
+	color: #FFD700;
 	text-align: center;
 	margin-bottom: 1.5rem;
 	font-size: 6rem;
@@ -136,6 +136,21 @@ article p {
 	text-indent: 10%;
 	text-align: justify; 
 	font-size: 1.1rem;
+}
+
+article .read-more {
+	display: inline-block;
+	background-color: #FFD700;
+	color: #333;
+	padding: 0.6rem 1.2rem;
+	text-decoration: none;
+	border-radius: 4px;
+	margin-top: 1rem;
+	transition: background-color 0.3s ease;
+}
+
+article .read-more:hover {
+    background-color: #e0e0e0;
 }
 
 footer {
