@@ -127,6 +127,11 @@ article h4 {
 	border-bottom: 2px solid #FFD700;
 }
 
+article h4 a {
+	color: inherit;
+	text-decoration: none;
+}
+
 article p {
 	text-indent: 10%;
 	text-align: justify; 
