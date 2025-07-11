@@ -18,12 +18,12 @@ header {
 header h1 {
     color: #FFD700; 
     margin: 0;
-	cursor: default; 
 }
 
 header a {
-    color: #e0e0e0;
+    color: inherit;
     text-decoration: none; 
+	cursor: default; 
 }
 
 nav ul {
@@ -36,15 +36,16 @@ nav ul {
 }
 
 nav ul li a {
+	color: #e0e0e0;
+    text-decoration: none; 
     padding: 0.25rem 0.5rem;
     display: block;
+	transition: color 0.3s ease;	
 }
 
 nav ul li a:hover {
     color: #FFD700;
-    border-radius: 4px;
     text-decoration: none;
-	transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 main {
@@ -56,22 +57,12 @@ main {
     border-radius: 0;
 }
 
-main h2 {
-	color: #ffd700;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 6rem;
-    padding-bottom: 0.5rem;
-	position: relative;
-    z-index: 2; 
-}
-
 .hero-banner {
     background-image: url('https://i.imgur.com/l71j8GP.jpeg');
     background-size: cover;
     background-position: center;
-    color: #333;
-    padding: 4rem 2rem;
+    color: #ffd700;
+    padding: 2rem 2rem;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -87,8 +78,31 @@ main h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(51, 51, 51, 0.5); /* Cor preta com 50% de opacidade */
-    z-index: 1; /* Garante que a película fique abaixo do texto, mas acima da imagem */
+    background-color: rgba(51, 51, 51, 0.5); 
+    z-index: 1;
+}
+
+.hero-banner h2 {
+	color: #ffd700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 6rem;
+    padding-bottom: 0.5rem;
+	position: relative;
+    z-index: 2; 
+}
+
+.posts_recentes {
+	max-width: 1000px; 
+	margin: auto;
+}
+
+.posts_recentes h3 {
+	color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    padding-bottom: 0rem;
 }
 
 article {
@@ -99,7 +113,7 @@ article {
     border-radius: 4px;
 }
 
-main h3 {
+article h4 {
     color: #333;
     text-align: center;
     margin-bottom: 1.5rem;
@@ -108,7 +122,7 @@ main h3 {
     border-bottom: 2px solid #FFD700;
 }
 
-main p {
+article p {
 	text-indent: 10%;
     text-align: justify; 
 	font-size: 1.1rem;
@@ -117,6 +131,15 @@ main p {
 footer {
 	text-align: center;
 	
+}
+
+footer {
+    background-color: #333;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+    font-size: 0.9em;
 }
 
 @media (max-width: 768px) {
@@ -139,11 +162,11 @@ footer {
         border-radius: 4px;
     }
 	
-	main h2 {
+	.hero-banner h2 {
 		font-size: 2.5rem;
 	}
 
 	.hero-banner {
-        padding: 2rem 1rem;
+        padding: 1rem 1rem;
     }
 }
