@@ -36,39 +36,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // A função setupCarousel deve ser definida AQUI, fora do DOMContentLoaded
 function setupCarousel(carouselElement) {
-    // Selecione o NOVO contêiner das imagens para o transform
-    const imagesContainer = carouselElement.querySelector('.carousel-slides'); // MUDANÇA CRUCIAL AQUI
-    const images = imagesContainer.querySelectorAll('img'); // Seleciona as imagens dentro do .carousel-slides
-
+    const imagesContainer = carouselElement.querySelector('.carousel-slides');
+    const images = imagesContainer ? imagesContainer.querySelectorAll('img') : []; // Adicionado check para imagesContainer
+    
     const prevButton = carouselElement.querySelector('.carousel-button.prev');
     const nextButton = carouselElement.querySelector('.carousel-button.next');
     const dotsContainer = carouselElement.querySelector('.carousel-dots');
 
+    // --- Adicione estes console.log para depuração ---
+    console.log('Configurando carrossel:', carouselElement);
+    console.log('imagesContainer:', imagesContainer);
+    console.log('images.length:', images.length);
+    console.log('prevButton:', prevButton);
+    console.log('nextButton:', nextButton);
+    console.log('dotsContainer:', dotsContainer);
+    // --- Fim dos console.log de depuração ---
+
     if (!imagesContainer || images.length === 0 || !prevButton || !nextButton || !dotsContainer) {
-        console.warn('Elementos do carrossel não encontrados ou insuficientes para configurar.', carouselElement);
-        return;
+        console.error('ERRO: Elementos essenciais do carrossel não encontrados ou insuficientes para configurar.', {
+            imagesContainer, imagesLength: images.length, prevButton, nextButton, dotsContainer
+        });
+        return; // Sai da função se algo essencial não for encontrado
     }
 
     let currentIndex = 0;
     const totalImages = images.length;
 
     // Criar os pontos indicadores
-    dotsContainer.innerHTML = ''; // Limpa os pontos existentes antes de criar
+    dotsContainer.innerHTML = '';
     for (let i = 0; i < totalImages; i++) {
         const dot = document.createElement('span');
         dot.classList.add('dot');
         dot.addEventListener('click', () => {
             currentIndex = i;
             updateCarousel();
+            console.log('Ponto clicado, novo currentIndex:', currentIndex); // Depuração
         });
         dotsContainer.appendChild(dot);
     }
-    const dots = dotsContainer.querySelectorAll('.dot'); // Seleciona os pontos após criá-los
+    const dots = dotsContainer.querySelectorAll('.dot');
 
     function updateCarousel() {
-        imagesContainer.style.transform = `translateX(${-currentIndex * 100}%)`; // Aplica a transformação ao carousel-slides
+        imagesContainer.style.transform = `translateX(${-currentIndex * 100}%)`;
 
-        // Atualiza a classe 'active' nos pontos
         dots.forEach((dot, index) => {
             if (index === currentIndex) {
                 dot.classList.add('active');
@@ -76,17 +86,20 @@ function setupCarousel(carouselElement) {
                 dot.classList.remove('active');
             }
         });
+        console.log('Carrossel atualizado para currentIndex:', currentIndex); // Depuração
     }
 
     // Navegação pelos botões
     prevButton.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + totalImages) % totalImages;
         updateCarousel();
+        console.log('Botão Anterior clicado, novo currentIndex:', currentIndex); // Depuração
     });
 
     nextButton.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % totalImages;
         updateCarousel();
+        console.log('Botão Próximo clicado, novo currentIndex:', currentIndex); // Depuração
     });
 
     // Inicializa o carrossel na primeira imagem
