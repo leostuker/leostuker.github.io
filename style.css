@@ -61,7 +61,7 @@ main {
 }
 
 .hero-banner {
-	background-image: url('https://i.imgur.com/l71j8GP.jpeg');
+	background-image: url('https://res.cloudinary.com/dwxt7b65d/image/upload/v1752342901/banner_image.jpg');
 	background-size: cover;
 	background-position: center;
 	color: #FFD700;
@@ -160,9 +160,9 @@ article .read-more:hover {
     width: 100%;
 	padding-bottom: 66.66%;
 	height: 0;
-    max-width: 800px; /* Largura máxima do seu carrossel */
+    max-width: 800px;
     margin: 2rem auto;
-    overflow: hidden; /* Importante para esconder imagens que não estão visíveis */
+    overflow: hidden;
 	background-color: #cccccc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
