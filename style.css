@@ -154,26 +154,34 @@ article .read-more:hover {
 }
 
 .carousel-container {
-    position: relative; /* Para posicionar botões e imagens */
+	display: flex;
+    position: relative;
+	transition: transform 0.5s ease-in-out;
     width: 100%;
+	padding-bottom: 66.66%;
+	height: 0;
     max-width: 800px; /* Largura máxima do seu carrossel */
     margin: 2rem auto;
     overflow: hidden; /* Importante para esconder imagens que não estão visíveis */
+	background-color: #cccccc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .carousel-images {
-    display: flex; /* Para as imagens ficarem lado a lado e poderem deslizar */
-    transition: transform 0.5s ease-in-out; /* Transição para o slide das imagens */
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-images img {
-    width: 100%;
-    display: block; /* Garante que a imagem ocupe a largura total do seu contêiner pai flex */
-    flex-shrink: 0; /* Impede que as imagens encolham */
-    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer, cortando se necessário */
-    height: 400px; /* Altura fixa para o carrossel. Ajuste conforme necessário */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	flex-shrink: 0;
+	object-fit: contain;
 }
 
 /* Botões de Navegação */
