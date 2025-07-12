@@ -245,7 +245,6 @@ footer {
 	text-align: center;
 	background-color: #333;
 	color: #e0e0e0;
-	text-align: center;
 	padding: 1.5rem 0;
 	margin-top: 3rem;
 	font-size: 0.9em;
@@ -288,5 +287,5 @@ footer a {
 	.hero-banner {
         	padding: 1rem 1rem;
 			margin-top: 8rem;
-    	}
+    }
 }

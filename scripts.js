@@ -7,32 +7,40 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('../header.html')
         .then(response => {
             if (!response.ok) {
-                // Se a resposta não for OK (ex: 404 Not Found), lança um erro
                 throw new Error(`HTTP error! Status: ${response.status} ao carregar header.html`);
             }
-            return response.text(); // Pega o conteúdo da resposta como texto
+            return response.text();
         })
         .then(html => {
             if (headerPlaceholder) {
-                headerPlaceholder.innerHTML = html; // Insere o HTML no placeholder
+                headerPlaceholder.innerHTML = html;
             }
         })
+        .catch(error => console.error('Erro ao carregar ou injetar o header:', error)); // ADICIONAR DE VOLTA ESTE BLOCO
 
     // Carregar Footer
     fetch('../footer.html')
         .then(response => {
             if (!response.ok) {
-                // Se a resposta não for OK (ex: 404 Not Found), lança um erro
                 throw new Error(`HTTP error! Status: ${response.status} ao carregar footer.html`);
             }
-            return response.text(); // Pega o conteúdo da resposta como texto
+            return response.text();
         })
         .then(html => {
             if (footerPlaceholder) {
-                footerPlaceholder.innerHTML = html; // Insere o HTML no placeholder
+                footerPlaceholder.innerHTML = html;
             }
         })
+        .catch(error => console.error('Erro ao carregar ou injetar o footer:', error)); // ADICIONAR DE VOLTA ESTE BLOCO
+
+    // Configurar carrosséis na página (Este bloco agora será executado)
+    const allCarousels = document.querySelectorAll('.carousel-container');
+    allCarousels.forEach(carousel => {
+        setupCarousel(carousel);
+    });
 });
+
+// ... (Resto do seu código JavaScript, incluindo a função setupCarousel) ...
 
 // A função setupCarousel deve ser definida AQUI, fora do DOMContentLoaded
 function setupCarousel(carouselElement) {
