@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const footerPlaceholder = document.getElementById('footer-placeholder');
 
     // Carregar Header
-    fetch('header.html')
+    fetch('../header.html')
         .then(response => {
             if (!response.ok) {
                 // Se a resposta não for OK (ex: 404 Not Found), lança um erro
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
 
     // Carregar Footer
-    fetch('footer.html')
+    fetch('../footer.html')
         .then(response => {
             if (!response.ok) {
                 // Se a resposta não for OK (ex: 404 Not Found), lança um erro
