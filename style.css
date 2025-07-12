@@ -61,7 +61,7 @@ main {
 }
 
 .hero-banner {
-	background-image: url('https://res.cloudinary.com/dwxt7b65d/image/upload/v1752342901/banner_image.jpg');
+	background-image: url('https://i.imgur.com/l71j8GP.jpeg');
 	background-size: cover;
 	background-position: center;
 	color: #FFD700;
@@ -154,16 +154,11 @@ article .read-more:hover {
 }
 
 .carousel-container {
-	display: flex;
     position: relative;
-	transition: transform 0.5s ease-in-out;
     width: 100%;
-	padding-bottom: 66.66%;
-	height: 0;
     max-width: 800px;
     margin: 2rem auto;
     overflow: hidden;
-	background-color: #cccccc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
@@ -171,20 +166,24 @@ article .read-more:hover {
 .carousel-images {
     display: flex;
     transition: transform 0.5s ease-in-out;
+	width: 100%;
+    padding-bottom: 66.66%;
+    height: 0;
+    position: relative;
+    background-color: #cccccc;
 }
 
 .carousel-images img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: block;
-	flex-shrink: 0;
-	object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    flex-shrink: 0;
+    object-fit: contain;
 }
 
-/* Botões de Navegação */
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -197,7 +196,7 @@ article .read-more:hover {
     font-size: 1.5rem;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-    z-index: 10; /* Para ficar acima das imagens */
+    z-index: 10;
 }
 
 .carousel-button.prev {
@@ -209,10 +208,9 @@ article .read-more:hover {
 }
 
 .carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(51, 51, 51, 0.8);
 }
 
-/* Indicadores (pontos) */
 .carousel-dots {
     position: absolute;
     bottom: 10px;
@@ -233,7 +231,7 @@ article .read-more:hover {
 }
 
 .dot.active {
-    background-color: #FFD700; /* Cor do ponto ativo */
+    background-color: #FFD700;
 }
 
 footer {
