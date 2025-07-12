@@ -34,10 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
         })
 });
 
-// Adicione esta função ao seu scripts.js
+// A função setupCarousel deve ser definida AQUI, fora do DOMContentLoaded
 function setupCarousel(carouselElement) {
-    const imagesContainer = carouselElement.querySelector('.carousel-images');
-    const images = carouselElement.querySelectorAll('.carousel-images img');
+    // Selecione o NOVO contêiner das imagens para o transform
+    const imagesContainer = carouselElement.querySelector('.carousel-slides'); // MUDANÇA CRUCIAL AQUI
+    const images = imagesContainer.querySelectorAll('img'); // Seleciona as imagens dentro do .carousel-slides
+
     const prevButton = carouselElement.querySelector('.carousel-button.prev');
     const nextButton = carouselElement.querySelector('.carousel-button.next');
     const dotsContainer = carouselElement.querySelector('.carousel-dots');
@@ -51,6 +53,7 @@ function setupCarousel(carouselElement) {
     const totalImages = images.length;
 
     // Criar os pontos indicadores
+    dotsContainer.innerHTML = ''; // Limpa os pontos existentes antes de criar
     for (let i = 0; i < totalImages; i++) {
         const dot = document.createElement('span');
         dot.classList.add('dot');
@@ -63,7 +66,7 @@ function setupCarousel(carouselElement) {
     const dots = dotsContainer.querySelectorAll('.dot'); // Seleciona os pontos após criá-los
 
     function updateCarousel() {
-        imagesContainer.style.transform = `translateX(${-currentIndex * 100}%)`;
+        imagesContainer.style.transform = `translateX(${-currentIndex * 100}%)`; // Aplica a transformação ao carousel-slides
 
         // Atualiza a classe 'active' nos pontos
         dots.forEach((dot, index) => {
@@ -77,27 +80,15 @@ function setupCarousel(carouselElement) {
 
     // Navegação pelos botões
     prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Loop infinito para trás
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
         updateCarousel();
     });
 
     nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalImages; // Loop infinito para frente
+        currentIndex = (currentIndex + 1) % totalImages;
         updateCarousel();
     });
 
     // Inicializa o carrossel na primeira imagem
     updateCarousel();
 }
-
-// Chame esta função para cada carrossel que você tiver na página
-// Use document.querySelectorAll('.carousel-container') para selecionar todos
-document.addEventListener('DOMContentLoaded', function() {
-    // ... seu código existente para header/footer ...
-
-    // Configurar carrosséis na página
-    const allCarousels = document.querySelectorAll('.carousel-container');
-    allCarousels.forEach(carousel => {
-        setupCarousel(carousel);
-    });
-});

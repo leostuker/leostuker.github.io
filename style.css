@@ -153,35 +153,42 @@ article .read-more:hover {
     background-color: #e0e0e0;
 }
 
+/* --- Carrossel de Imagens --- */
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 800px; /* Largura máxima do seu carrossel */
     margin: 2rem auto;
-    overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    overflow: hidden; /* Importante para esconder a parte das imagens que não estão visíveis */
 }
 
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-	width: 100%;
+.carousel-viewport {
+    position: relative;
+    width: 100%;
     padding-bottom: 66.66%;
     height: 0;
-    position: relative;
-    background-color: #cccccc;
+    background-color: #ccc;
+    overflow: hidden;
 }
 
-.carousel-images img {
+.carousel-slides {
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display: block;
-    flex-shrink: 0;
-    object-fit: contain;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slides img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0; /* Impede que as imagens encolham */
+    object-fit: contain; /* Reduz a imagem para caber sem cortar, adicionando barras (preenchidas pelo background-color do .carousel-viewport) */
+    display: block; /* Para remover espaços extras que podem aparecer em img */
 }
 
 .carousel-button {
@@ -208,7 +215,7 @@ article .read-more:hover {
 }
 
 .carousel-button:hover {
-    background-color: rgba(51, 51, 51, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .carousel-dots {
@@ -251,7 +258,7 @@ footer a {
 
 @media (max-width: 768px) {
 	body {
-		padding-top: 8rem; /* O header em mobile está mais alto, então precisa de mais padding */
+		padding-top: 8rem;
 	}
 	
 	header {
