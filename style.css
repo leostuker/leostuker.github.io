@@ -1,5 +1,5 @@
 *, *::before, *::after {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
@@ -8,8 +8,7 @@ body {
 	line-height: 1.6;
 	background-color:#e0e0e0;
 	color: #333;
-    /* Compensação para o header fixo - ajuste este valor conforme a altura real do seu header */
-    padding-top: 5rem; /* Valor para desktop, será ajustado em media query para mobile */
+	padding-top: 5rem;
 }
 
 header {
@@ -27,13 +26,9 @@ header {
 }
 
 header h1 {
-	color: #FFD700; /* Revertido: Cor amarela no h1 */
+	color: #FFD700;
 	margin: 0;
 }
-
-/* Revertido: Removido o seletor 'header h1 a' e 'header h1 a:hover' */
-/* Se o h1 for um link, ele herdará a cor do 'header' (e0e0e0) a menos que 'header a' seja definido. */
-/* Se você quiser o link do h1 amarelo, precisará adicionar um estilo específico para ele. */
 
 nav ul {
 	list-style: none;
@@ -49,13 +44,12 @@ nav ul li a {
 	text-decoration: none; 
 	padding: 0.25rem 0.5rem;
 	display: block;
-	transition: color 0.3s ease; /* Revertido: Transição apenas para a cor */
+	transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
 	color: #FFD700;
 	text-decoration: none;
-    /* Revertido: Removido background-color e border-radius do hover */
 }
 
 main {
@@ -79,7 +73,6 @@ main {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	/* Removido margin-top aqui, pois padding-top no body compensa o header fixo */
 }
 
 .hero-banner::before {
@@ -97,7 +90,7 @@ main {
 	color: #FFD700;
 	text-align: center;
 	margin-bottom: 1.5rem;
-	font-size: 6rem; /* Revertido: Tamanho original para desktop */
+	font-size: 6rem;
 	padding-bottom: 0.5rem;
 	position: relative;
 	z-index: 2; 
@@ -157,152 +150,166 @@ article .read-more {
 }
 
 article .read-more:hover {
-    background-color: #e0e0e0;
+	background-color: #e0e0e0;
 }
 
-/* --- Carrossel de Imagens --- */
+
 .carousel-container {
-    position: relative;
-    width: 100%;
-    max-width: 800px; /* Largura máxima do seu carrossel */
-    margin: 2rem auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    overflow: hidden; /* Importante para esconder a parte das imagens que não estão visíveis */
+	position: relative;
+	width: 100%;
+	max-width: 800px;
+	margin: 2rem auto;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+	overflow: hidden;
 }
 
 .carousel-viewport {
-    position: relative;
-    width: 100%;
-    padding-bottom: 66.66%; /* Altura é 10/15 da largura = 66.66% */
-    height: 0; /* Essencial para o padding-bottom funcionar como altura */
-    background-color: #cccccc; /* Cor para as "bordas transparentes" de fotos verticais */
-    overflow: hidden; /* Garante que as imagens não vazem durante a transição */
+	position: relative;
+	width: 100%;
+	padding-bottom: 66.66%;
+	height: 0;
+	background-color: #cccccc;
+	overflow: hidden;
 }
 
 .carousel-slides {
-    display: flex; /* As imagens se alinham em uma linha */
-    position: absolute; /* Ocupa todo o espaço do viewport */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out; /* Transição suave ao trocar de slide */
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slides img {
-    width: 100%; /* Cada imagem ocupa 100% da largura do slot */
-    height: 100%; /* Cada imagem ocupa 100% da altura do slot */
-    flex-shrink: 0; /* Impede que as imagens encolham */
-    object-fit: contain; /* Reduz a imagem para caber sem cortar, adicionando barras (preenchidas pelo background-color do .carousel-viewport) */
-    display: block; /* Para remover espaços extras que podem aparecer em img */
+	width: 100%;
+	height: 100%;
+	flex-shrink: 0;
+	object-fit: contain;
+	display: block;
 }
 
 .carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-    z-index: 10;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	border: none;
+	padding: 10px 15px;
+	cursor: pointer;
+	font-size: 1.5rem;
+	border-radius: 4px;
+	transition: background-color 0.3s ease;
+	z-index: 10;
 }
 
 .carousel-button.prev {
-    left: 10px;
+	left: 10px;
 }
 
 .carousel-button.next {
-    right: 10px;
+	right: 10px;
 }
 
 .carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.8);
 }
 
 .carousel-counter {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 0.9em;
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 5px 10px;
-    border-radius: 5px;
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: white;
+	font-size: 0.9em;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 5px 10px;
+	border-radius: 5px;
 }
 
-/* Oculta os pontos do carrossel, pois estamos usando o contador */
 .carousel-dots {
-    display: none !important; 
+	display: none !important; 
 }
 
-/* --- Estilos para a Seção de Redes Sociais --- */
 .social-links {
-    max-width: 900px;
-    margin: 3rem auto;
-    padding: 0 1rem;
-    text-align: center;
+	max-width: 900px;
+	margin: 3rem auto;
+	padding: 0 1rem;
+	text-align: center;
 }
 
 .social-links h3 {
-    color: #333;
-    font-size: 2.2rem;
-    margin-bottom: 2.5rem;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 0.5rem;
-    display: inline-block;
-} /* FECHA .social-links h3 */
+	color: #333;
+	font-size: 2.2rem;
+	margin-bottom: 2.5rem;
+	border-bottom: 2px solid #ddd;
+	padding-bottom: 0.5rem;
+	display: inline-block;
+}
 
 .social-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 20px;
-    justify-content: center; 
-    align-items: stretch;
-} /* FECHA .social-grid */
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+	gap: 20px;
+	justify-content: center; 
+	align-items: stretch;
+}
 
 .social-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 25px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .social-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+	transform: translateY(-5px);
+	box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-.social-item img {
-    width: 60px; 
-    height: 60px;
-    margin-bottom: 15px;
+.social-item svg {
+	width: 60px;
+	height: 60px;
+	margin-bottom: 15px;
+	fill: currentColor;
+	transition: fill 0.3s ease;
 }
 
 .social-item span {
-    font-size: 1.2rem;
+	font-size: 1.2rem;
 }
 
-/* Cores específicas para cada rede social (opcional, mas legal!) */
-.social-item.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
-.social-item.linkedin:hover { background-color: #0077B5; color: #fff; }
-.social-item.github:hover { background-color: #333; color: #fff; }
-.social-item.reddit:hover { background-color: #ff4500; color: #fff; }
+.social-item.instagram:hover {
+	background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+	color: #fff;
+}
+
+.social-item.linkedin:hover {
+	background-color: #0077B5;
+	color: #fff;
+}
+
+.social-item.github:hover {
+	background-color: #333;
+	color: #fff;
+}
+
+.social-item.reddit:hover {
+	background-color: #ff4500;
+	color: #fff;
+}
 
 footer {
 	text-align: center;
@@ -320,7 +327,7 @@ footer a {
 
 @media (max-width: 768px) {
 	body {
-		padding-top: 8rem; /* Ajuste para mobile */
+		padding-top: 8rem;
 	}
 	
 	header {
@@ -330,16 +337,16 @@ footer a {
 	}
 
 	header h1 {
-        	margin-bottom: 0rem;
-        	font-size: 1.5rem;
+			margin-bottom: 0rem;
+			font-size: 1.5rem;
 		padding-bottom: 1rem;
 	}
 
 	nav ul li a {
-        	font-size: 1rem;
-        	padding: 0.2rem 0.4rem;
-        	font-weight: bold;
-        	border-radius: 4px;
+			font-size: 1rem;
+			padding: 0.2rem 0.4rem;
+			font-weight: bold;
+			border-radius: 4px;
 	}
 	
 	.hero-banner h2 {
@@ -347,16 +354,15 @@ footer a {
 	}
 
 	.hero-banner {
-        	padding: 1rem 1rem;
-			/* Removido margin-top aqui, pois padding-top no body compensa o header fixo */
-    }
+			padding: 1rem 1rem;
+	}
 	
 	.social-links h3 {
 		font-size: 1.8rem;
 	}
 	.social-grid {
 		grid-template-columns: 1fr;
-        	padding: 0 1rem;
+			padding: 0 1rem;
 	}
 	.social-item {
 		padding: 20px;
