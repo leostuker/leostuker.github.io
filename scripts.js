@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const headerPlaceholder = document.getElementById('header-placeholder');
     const footerPlaceholder = document.getElementById('footer-placeholder');
 
-    fetch('../header.html')
+    // Carregar Header
+    // Usa caminho absoluto do root do site para garantir que sempre encontre o header.html
+    fetch('/header.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status} ao carregar header.html`);
@@ -16,7 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Erro ao carregar ou injetar o header:', error));
 
-    fetch('../footer.html')
+    // Carregar Footer
+    // Usa caminho absoluto do root do site para garantir que sempre encontre o footer.html
+    fetch('/footer.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status} ao carregar footer.html`);
@@ -30,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Erro ao carregar ou injetar o footer:', error));
 
+    // Configurar carrosséis na página
     const allCarousels = document.querySelectorAll('.carousel-container');
     allCarousels.forEach(carousel => {
         setupCarousel(carousel);
@@ -42,9 +47,9 @@ function setupCarousel(carouselElement) {
     
     const prevButton = carouselElement.querySelector('.carousel-button.prev');
     const nextButton = carouselElement.querySelector('.carousel-button.next');
-    const dotsContainer = carouselElement.querySelector('.carousel-dots'); // Still exists in HTML
+    const dotsContainer = carouselElement.querySelector('.carousel-dots');
 
-    if (!imagesContainer || images.length === 0 || !prevButton || !nextButton) { // Removed dotsContainer from condition as it's being replaced
+    if (!imagesContainer || images.length === 0 || !prevButton || !nextButton) {
         console.error('ERRO: Elementos essenciais do carrossel não encontrados.', {
             imagesContainer, imagesLength: images.length, prevButton, nextButton
         });
@@ -54,12 +59,12 @@ function setupCarousel(carouselElement) {
     let currentIndex = 0;
     const totalImages = images.length;
     
-    // Create and append the counter
+    // Cria e adiciona o contador
     const counter = document.createElement('div');
     counter.classList.add('carousel-counter');
     carouselElement.appendChild(counter);
 
-    // Remove the dots container if it exists in HTML
+    // Remove o contêiner de pontos se ele existir no HTML
     if (dotsContainer) {
         dotsContainer.remove();
     }
