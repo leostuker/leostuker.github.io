@@ -142,6 +142,11 @@ article mark {
 	background-color: #FFD700;
 }
 
+article ol {
+	list-style-type: none;
+	padding-left: 0;
+}
+
 article .read-more {
 	display: inline-block;
 	background-color: #FFD700;
