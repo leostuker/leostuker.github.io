@@ -138,6 +138,10 @@ article p {
 	font-size: 1.1rem;
 }
 
+article mark {
+	background-color: #FFD700;
+}
+
 article .read-more {
 	display: inline-block;
 	background-color: #FFD700;
