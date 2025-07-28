@@ -132,10 +132,21 @@ article h4 a {
 	text-decoration: none;
 }
 
+article h5 {
+	color: #333;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
 article p {
 	text-indent: 10%;
 	text-align: justify; 
 	font-size: 1.1rem;
+}
+
+article strong p {
+	text-align: center; 
+	font-size: 1.2rem;
 }
 
 article mark {
