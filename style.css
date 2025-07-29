@@ -146,7 +146,7 @@ article p {
 }
 
 article strong p {
-	text-indent: none;
+	text-indent: 0%;
 	text-align: center; 
 	font-size: 1.1rem;
 }
