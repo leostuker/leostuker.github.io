@@ -1,13 +1,32 @@
 <header>
-    <h1>Leonardo Stüker</h1>
-    <nav>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../sobre.html">Sobre mim</a></li>
-            <li><a href="../fotos.html">Fotografias</a></li>
-            <li><a href="../codes.html">Computação</a></li>
-            <li><a href="../rpg.html">RPG</a></li>
-            <li><a href="../redes.html">Redes</a></li>
-        </ul>
-    </nav>
+	<h1>Leonardo Stüker</h1>
+	<nav>
+		<ul>
+			<li>
+				<form role="search" aria-label="Busca no site">
+					<label for="campo-busca">Buscar conteúdo</label>
+					<input
+						type="search"
+						id="campo-busca"
+						aria-autocomplete="list"
+						aria-controls="sugestoes-busca"
+						aria-expanded="false"
+						autocomplete="off"
+					>
+					<button type="submit">Pesquisar</button>
+
+					<ul id="sugestoes-busca" role="listbox" aria-label="Sugestões" hidden>
+						<li id="sugestao-1" role="option" aria-selected="false">Acessibilidade web</li>
+						<li id="sugestao-2" role="option" aria-selected="false">HTML semântico</li>
+					</ul>
+				</form>
+			</li>
+			<li><a href="../index.html">Home</a></li>
+			<li><a href="../sobre.html">Sobre mim</a></li>
+			<li><a href="../fotos.html">Fotografias</a></li>
+			<li><a href="../codes.html">Computação</a></li>
+			<li><a href="../rpg.html">RPG</a></li>
+			<li><a href="../redes.html">Redes</a></li>
+		</ul>
+	</nav>
 </header>
