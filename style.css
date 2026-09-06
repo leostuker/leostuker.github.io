@@ -6,7 +6,7 @@ body {
 	font-family: Ubuntu, sans-serif;
 	margin: 0;
 	line-height: 1.6;
-	background-color: #181818;
+	background-color: #333;
 	color: #e0e0e0;
 	padding-top: 5rem;
 }
@@ -113,7 +113,7 @@ article {
 	padding: 2rem; 
 	max-width: 800px; 
 	margin: 2rem auto; 
-	background-color: #333;
+	background-color: #181818;
 	border-radius: 4px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
