@@ -118,6 +118,11 @@ article {
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+article a {
+	color: #FFD700;
+	text-decoration: none;
+}
+
 article h4 {
 	color: #e0e0e0;
 	text-align: center;
