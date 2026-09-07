@@ -15,6 +15,7 @@ def gerar_post(entrada):
         "descricao": "",
         "data": "",
         "titulo": "",
+        "sinopse" : "",
         "corpo": [],
         "carousel": []
     }
@@ -45,8 +46,18 @@ def gerar_post(entrada):
                         dados["data"] = valor
             elif linha_limpa.startswith("#"):
                 dados["titulo"] = linha_limpa.replace("#", "").strip()
-                fase = "corpo"
+                fase = "sinopse"
                 
+        elif fase == "sinopse":
+            if linha_limpa.startswith("#"):
+                linha_html = markdown.markdown(linha_limpa)
+                dados["corpo"].append(linha_html)
+            else:
+                dados["sinopse"] = linha_limpa
+                linha_html = markdown.markdown(linha_limpa)
+                dados["corpo"].append(linha_html)
+                fase = "corpo"
+            
         elif fase == "corpo":
             if linha_limpa == "[carousel]":
                 fase = "carousel"
@@ -126,6 +137,10 @@ def gerar_post(entrada):
         
     return dados
 
+def zerar_dados(nome_arquivo="dados.jsonl"):
+    with open(nome_arquivo, "w", encoding="utf-8") as f:
+        pass
+
 def salvar_dados(dados, nome_arquivo="dados.jsonl"):
     with open(nome_arquivo, "a", encoding="utf-8") as f:
         linha = json.dumps(dados, ensure_ascii=False)
@@ -140,7 +155,8 @@ try:
                 ignorar.add(nome_limpo)
 except:
     print("erro no ignorar")
-                
+
+zerar_dados()
 for arquivo in Path("../").rglob('*.md'):
     if arquivo.name in ignorar:
         continue
