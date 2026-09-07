@@ -146,24 +146,11 @@ def salvar_dados(dados, nome_arquivo="dados.jsonl"):
         linha = json.dumps(dados, ensure_ascii=False)
         f.write(linha + "\n")
 
-ignorar = set()
-try:
-    with open("ignorar.txt", "r", encoding="utf-8") as f:
-        for linha in f:
-            nome_limpo = linha.strip()
-            if nome_limpo:
-                ignorar.add(nome_limpo)
-except:
-    print("erro no ignorar")
-
 zerar_dados()
-for arquivo in Path("../").rglob('*.md'):
-    if arquivo.name in ignorar:
-        continue
-    elif arquivo.is_file():
-        dados = gerar_post(arquivo)
-        del dados['corpo'], dados['carousel']
-        salvar_dados(dados)
+for arquivo in Path("../").glob('posts-*/**/*.md'):
+    dados = gerar_post(arquivo)
+    del dados['corpo'], dados['carousel']
+    salvar_dados(dados)
         
         
 
