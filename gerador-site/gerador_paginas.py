@@ -167,7 +167,7 @@ def gerar_pag_post(artigos, secao):
 		<div id="header-placeholder"></div>
 		<main id="main-content">
 			<div class="hero-banner">
-				<h2>dados_pag["titulo"]</h2>
+				<h2>{dados_pag["titulo"]}</h2>
 			</div>
 			<article >
 				<h4>{dados_pag["subtitulo"]}</h4>
