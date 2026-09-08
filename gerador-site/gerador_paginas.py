@@ -24,10 +24,10 @@ def index(ultimos_artigos):
         "descricao": "",
         "titulo": "",
         "corpo": [],
-        "a1": ultimos_artigos[3],
-        "a2": ultimos_artigos[2],
-        "a3": ultimos_artigos[1],
-        "a4": ultimos_artigos[0]
+        "a1": ultimos_artigos[0],
+        "a2": ultimos_artigos[1],
+        "a3": ultimos_artigos[2],
+        "a4": ultimos_artigos[3]
     }
 
     with open('../index.md', 'r', encoding='utf-8') as f:
