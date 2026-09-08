@@ -21,7 +21,7 @@ def gerar_post(entrada):
     }
     
     fase = "cabecalho"
-    
+        
     for linha in linhas:
         linha_limpa = linha.strip()
 
@@ -93,36 +93,36 @@ def gerar_post(entrada):
     \t\t\t\t</div>'''
     
     html = f'''<!DOCTYPE html>
-    <html lang="pt-BR">
-    \t<head>
-    \t\t<title>Leão Bordado - {dados["titulo_sessao"]}</title>
-    \t\t<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    \t\t<link rel="icon" type="image/png" href="../favicon.png">
-    \t\t<link rel="apple-touch-icon" href="../apple-touch-icon.png">
-    \t\t<link rel="manifest" href="../manifest.json">
-    \t\t<link rel="preload stylesheet" href="../style.css" as="style">
-    \t\t<link rel="preconnect stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
-    \t\t<meta charset="UTF-8">
-    \t\t<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    \t\t<meta name="description" content="{dados["descricao"]}">
-    \t\t<meta name="author" content="Leonardo Sander Stüker">
-    \t</head>
-    \t<body>
-    \t\t<div id="header-placeholder"></div>
-    \t\t<main>
-    \t\t\t<div class="hero-banner">
-    \t\t\t\t<h2>{dados["titulo_sessao"]}</h2>
-    \t\t\t</div>
-    \t\t\t<main id="main-content">
-    \t\t\t<article>
-    \t\t\t\t<h4>{dados["titulo"]}</h4>
-    \t\t\t\t{texto_corpo}{bloco_carousel}
-    \t\t\t</article>
-    \t\t</main>
-    \t\t<div id="footer-placeholder"></div>
-    \t\t<script src="../scripts.js"></script>
-    \t</body>
-    </html>'''
+<html lang="pt-BR">
+	<head>
+		<title>Leão Bordado - {dados["titulo_sessao"]}</title>
+		<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+		<link rel="icon" type="image/png" href="../favicon.png">
+		<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+		<link rel="manifest" href="../manifest.json">
+		<link rel="preload stylesheet" href="../style.css" as="style">
+		<link rel="preconnect stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="{dados["descricao"]}">
+		<meta name="author" content="Leonardo Sander Stüker">
+	</head>
+	<body>
+		<div id="header-placeholder"></div>
+		<main>
+			<div class="hero-banner">
+				<h2>{dados["titulo_sessao"]}</h2>
+			</div>
+			<main id="main-content">
+			<article>
+				<h4>{dados["titulo"]}</h4>
+				{texto_corpo}{bloco_carousel}
+			</article>
+		</main>
+		<div id="footer-placeholder"></div>
+		<script src="../scripts.js"></script>
+	</body>
+</html>'''
     
     nome_arquivo = dados["titulo"].replace(" ", "_").lower() + ".html"
     if dados["sessao"] != "":
@@ -150,8 +150,6 @@ zerar_dados()
 for arquivo in Path("../").glob('posts-*/**/*.md'):
     dados = gerar_post(arquivo)
     del dados['corpo'], dados['carousel']
-    salvar_dados(dados)
-        
-        
+    salvar_dados(dados)        
 
 

@@ -1,7 +1,7 @@
 sessao = rpg
 titulo_sessao = RPG
 descricao = Postagem sobre o Codex que criei para mestrar uma campanha.
-data = 07/09/2026
+data = 02/05/2026
 
 # Codex Stüker
 

@@ -1,7 +1,7 @@
 sessao = fotos
 titulo_sessao = Fotografias
 descricao = Postagem mostrando as fotos que tirei com o filme Ektachrome na minha Canon EOS 3000.
-data = 07/09/2026 # se deixar vazio ele pega a data de hoje
+data = 15/07/2025
 
 # Canon EOS 3000 - Ektachrome
 

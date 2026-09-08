@@ -1,7 +1,7 @@
 sessao = codes
 titulo_sessao = Computação
 descricao = Postagem sobre meu banco de dados das magias de D&D em português.
-data = 07/09/2026
+data = 01/09/2026
 
 # Grimório das magias de D&D
 

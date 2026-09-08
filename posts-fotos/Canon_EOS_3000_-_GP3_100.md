@@ -1,7 +1,7 @@
 sessao = fotos
 titulo_sessao = Fotografias
 descricao = Postagem mostrando as fotos que tirei com o filme GP3 100 na minha Canon EOS 3000.
-data = 07/09/2026 
+data = 14/07/2025
 
 # Canon EOS 3000 - GP3 100
 

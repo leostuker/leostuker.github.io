@@ -1,7 +1,7 @@
 sessao = fotos
 titulo_sessao = Fotografias
 descricao = Postagem mostrando as fotos que tirei com o filme Kodak Vision 3 250D na minha Canon Zoom MZ-25.
-data = 07/09/2026 
+data = 12/07/2025
 
 # Zoom MZ-25 - Kodak Vision 3 250D
 
