@@ -18,3 +18,4 @@ Como parte fundamental do site é mostrar minhas fotos, e são muitas fotos, nã
 ## Segunda etapa
 
 Quando entrei na onda da auto-hospedagem pensei em hospedar meu site aqui mesmo, o que me levou a pensar em colocar mais conteiudo aqui. O que me fez ir atras de ferramentas para fazer isso de forma mais automatica do que criar manualmente cada pagina e adicionar nas paginas adequandas.
+
