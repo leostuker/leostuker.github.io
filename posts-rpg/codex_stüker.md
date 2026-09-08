@@ -1,5 +1,5 @@
-sessao = rpg
-titulo_sessao = RPG
+secao = rpg
+titulo_secao = RPG
 descricao = Postagem sobre o Codex que criei para mestrar uma campanha.
 data = 02/05/2026
 

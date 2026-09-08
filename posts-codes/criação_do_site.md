@@ -1,5 +1,5 @@
-sessao = codes
-titulo_sessao = Computação
+secao = codes
+titulo_secao = Computação
 descricao = Postagem sobre a construção do meu site em suas varia fases.
 data = 07/09/2026
 

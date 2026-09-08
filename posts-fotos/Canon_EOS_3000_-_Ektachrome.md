@@ -1,5 +1,5 @@
-sessao = fotos
-titulo_sessao = Fotografias
+secao = fotos
+titulo_secao = Fotografias
 descricao = Postagem mostrando as fotos que tirei com o filme Ektachrome na minha Canon EOS 3000.
 data = 15/07/2025
 

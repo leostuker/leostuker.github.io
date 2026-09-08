@@ -1,5 +1,5 @@
-sessao = codes
-titulo_sessao = Computação
+secao = codes
+titulo_secao = Computação
 descricao = Postagem sobre meu banco de dados das magias de D&D em português.
 data = 01/09/2026
 

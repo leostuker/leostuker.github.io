@@ -10,8 +10,8 @@ def gerar_post(entrada):
         entrada = f
     
     dados = {
-        "sessao": "",
-        "titulo_sessao": "",
+        "secao": "",
+        "titulo_secao": "",
         "descricao": "",
         "data": "",
         "titulo": "",
@@ -33,10 +33,10 @@ def gerar_post(entrada):
                 chave, valor = linha_limpa.split("=", 1)
                 chave = chave.strip()
                 valor = valor.strip()
-                if chave == "sessao":
-                    dados["sessao"] = valor
-                elif chave == "titulo_sessao":
-                    dados["titulo_sessao"] = valor
+                if chave == "secao":
+                    dados["secao"] = valor
+                elif chave == "titulo_secao":
+                    dados["titulo_secao"] = valor
                 elif chave == "descricao":
                     dados["descricao"] = valor
                 elif chave == "data":
@@ -95,7 +95,7 @@ def gerar_post(entrada):
     html = f'''<!DOCTYPE html>
 <html lang="pt-BR">
 	<head>
-		<title>Leão Bordado - {dados["titulo_sessao"]}</title>
+		<title>Leão Bordado - {dados["titulo_secao"]}</title>
 		<link rel="icon" type="image/svg+xml" href="../favicon.svg">
 		<link rel="icon" type="image/png" href="../favicon.png">
 		<link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -111,7 +111,7 @@ def gerar_post(entrada):
 		<div id="header-placeholder"></div>
 		<main>
 			<div class="hero-banner">
-				<h2>{dados["titulo_sessao"]}</h2>
+				<h2>{dados["titulo_secao"]}</h2>
 			</div>
 			<main id="main-content">
 			<article>
@@ -125,15 +125,17 @@ def gerar_post(entrada):
 </html>'''
     
     nome_arquivo = dados["titulo"].replace(" ", "_").lower() + ".html"
-    if dados["sessao"] != "":
-        pasta_destino = "../posts-" + dados["sessao"]
+    if dados["secao"] != "":
+        pasta_destino = "..\posts-" + dados["secao"]
         os.makedirs(pasta_destino, exist_ok=True)
         saida = os.path.join(pasta_destino, nome_arquivo)
     else:
         saida = nome_arquivo
-        
+            
     with open(saida, 'w', encoding='utf-8') as f:
         f.write(html)
+
+    print(dados["secao"], "\t",nome_arquivo)
         
     return dados
 
@@ -146,7 +148,10 @@ def salvar_dados(dados, nome_arquivo="dados.jsonl"):
         linha = json.dumps(dados, ensure_ascii=False)
         f.write(linha + "\n")
 
+print("\nPosts:\nSeção\t Post")
+
 zerar_dados()
+
 for arquivo in Path("../").glob('posts-*/**/*.md'):
     dados = gerar_post(arquivo)
     del dados['corpo'], dados['carousel']
