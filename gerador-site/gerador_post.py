@@ -7,8 +7,7 @@ import json
 def gerar_post(entrada):
     with open(entrada, 'r', encoding='utf-8') as f:
         linhas = f.readlines()
-        entrada = f
-    
+        
     dados = {
         "secao": "",
         "titulo_secao": "",
@@ -72,8 +71,8 @@ def gerar_post(entrada):
                 partes = linha_limpa.split("\t")
                 if len(partes) >= 2:
                     url = partes[0].strip()
-                    desc = partes[1].strip()
-                    dados["carousel"].append(f'\t\t\t\t\t\t\t<img src="{url}" alt="{desc}">')
+                    desc = partes[1].strip().replace('"', '&quot;')
+                    dados["carousel"].append(f'\t\t\t\t\t\t\t<img src="{url}" alt="{desc}" loading="lazy">')
     
     texto_corpo = "\n\t\t\t\t".join(dados["corpo"])
     	
@@ -87,50 +86,39 @@ def gerar_post(entrada):
     {texto_imgs}
     \t\t\t\t\t\t</div>
     \t\t\t\t\t</div>
-    \t\t\t\t\t<button class="carousel-button prev"> &#9664 </button>
-    \t\t\t\t\t<button class="carousel-button next"> &#9654 </button>
-    \t\t\t\t\t<div class="carousel-dots"></div>
+    \t\t\t\t\t<button class="carousel-button prev" aria-label="Foto Anterior"> &#9664; </button>
+    \t\t\t\t\t<button class="carousel-button next" aria-label="Próxima Foto"> &#9654; </button>
     \t\t\t\t</div>'''
     
-    html = f'''<!DOCTYPE html>
-<html lang="pt-BR">
-	<head>
-		<title>Leão Bordado - {dados["titulo_secao"]}</title>
-		<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-		<link rel="icon" type="image/png" href="../favicon.png">
-		<link rel="apple-touch-icon" href="../apple-touch-icon.png">
-		<link rel="manifest" href="../manifest.json">
-		<link rel="preload stylesheet" href="../style.css" as="style">
-		<link rel="preconnect stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="{dados["descricao"]}">
-		<meta name="author" content="Leonardo Sander Stüker">
-	</head>
-	<body>
-		<div id="header-placeholder"></div>
-		<main>
-			<div class="hero-banner">
-				<h2>{dados["titulo_secao"]}</h2>
-			</div>
-			<main id="main-content">
-			<article>
-				<h4>{dados["titulo"]}</h4>
-				{texto_corpo}{bloco_carousel}
-			</article>
-		</main>
-		<div id="footer-placeholder"></div>
-		<script src="../scripts.js"></script>
-	</body>
-</html>'''
-    
     nome_arquivo = dados["titulo"].replace(" ", "_").lower() + ".html"
+    
     if dados["secao"] != "":
+        url_path = f"posts-{dados['secao']}/{nome_arquivo}"
         pasta_destino = "..\posts-" + dados["secao"]
         os.makedirs(pasta_destino, exist_ok=True)
         saida = os.path.join(pasta_destino, nome_arquivo)
     else:
+        url_path = nome_arquivo
         saida = nome_arquivo
+            
+    # Lendo o template e fragmentos (header/footer)
+    with open('../header.html', 'r', encoding='utf-8') as f:
+        html_header = f.read()
+    with open('../footer.html', 'r', encoding='utf-8') as f:
+        html_footer = f.read()
+    with open('templates/post.html', 'r', encoding='utf-8') as f:
+        template = f.read()
+        
+    html = template.format(
+        titulo=dados["titulo"],
+        titulo_secao=dados["titulo_secao"],
+        descricao=dados["descricao"],
+        url_path=url_path,
+        texto_corpo=texto_corpo,
+        bloco_carousel=bloco_carousel,
+        header=html_header,
+        footer=html_footer
+    )
             
     with open(saida, 'w', encoding='utf-8') as f:
         f.write(html)
@@ -155,6 +143,4 @@ zerar_dados()
 for arquivo in Path("../").glob('posts-*/**/*.md'):
     dados = gerar_post(arquivo)
     del dados['corpo'], dados['carousel']
-    salvar_dados(dados)        
-
-
+    salvar_dados(dados)

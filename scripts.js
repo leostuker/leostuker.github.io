@@ -1,39 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const headerPlaceholder = document.getElementById('header-placeholder');
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-
-    // Carregar Header
-    // Usa caminho absoluto do root do site para garantir que sempre encontre o header.html
-    fetch('/header.html')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status} ao carregar header.html`);
-            }
-            return response.text();
-        })
-        .then(html => {
-            if (headerPlaceholder) {
-                headerPlaceholder.innerHTML = html;
-            }
-        })
-        .catch(error => console.error('Erro ao carregar ou injetar o header:', error));
-
-    // Carregar Footer
-    // Usa caminho absoluto do root do site para garantir que sempre encontre o footer.html
-    fetch('/footer.html')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status} ao carregar footer.html`);
-            }
-            return response.text();
-        })
-        .then(html => {
-            if (footerPlaceholder) {
-                footerPlaceholder.innerHTML = html;
-            }
-        })
-        .catch(error => console.error('Erro ao carregar ou injetar o footer:', error));
-
     // Configurar carrosséis na página
     const allCarousels = document.querySelectorAll('.carousel-container');
     allCarousels.forEach(carousel => {
@@ -50,10 +15,7 @@ function setupCarousel(carouselElement) {
     const dotsContainer = carouselElement.querySelector('.carousel-dots');
 
     if (!imagesContainer || images.length === 0 || !prevButton || !nextButton) {
-        console.error('ERRO: Elementos essenciais do carrossel não encontrados.', {
-            imagesContainer, imagesLength: images.length, prevButton, nextButton
-        });
-        return;
+        return; // Retorna silenciosamente se não for uma página com carrossel
     }
 
     let currentIndex = 0;

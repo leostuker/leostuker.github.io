@@ -47,60 +47,33 @@ def index(ultimos_artigos):
             
     texto_corpo = "\n\t\t\t\t\t".join(dados_index["corpo"])
 
-    html = f'''<!DOCTYPE html>
-<html lang="pt-BR">
-	<head>
-		<title>Leão Bordado</title>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-		<link rel="icon" type="image/png" href="/favicon.png">
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-		<link rel="manifest" href="/manifest.json">
-		<link rel="preload stylesheet" href="style.css" as="style">
-		<link rel="preconnect stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="{dados_index["descricao"]}">
-		<meta name="author" content="Leonardo Sander Stüker">
-	</head>
-	<body>
-		<div id="header-placeholder"></div>
-		<main id="main-content">
-			<div class="hero-banner">
-				<h2>Leão Bordado</h2>
-			</div>
-			<article >
-				<h4>{dados_index["titulo"]}</h4>
-				{texto_corpo}
-			</article>
-			<section class="posts_recentes">
-				<h3>Posts Recentes</h3>
-				<article id=a1>
-					<h4><a href="posts-{dados_index["a1"]["secao"]}/{dados_index["a1"]["titulo"].replace(" ", "_").lower() + ".html"}">{dados_index["a1"]["titulo"]}</a></h4>
-					{markdown.markdown(dados_index["a1"]["sinopse"])}
-					<a href="posts-{dados_index["a1"]["secao"]}/{dados_index["a1"]["titulo"].replace(" ", "_").lower() + ".html"}" class="read-more">Ver Mais</a>
-				</article>
-				<article id=a2>
-					<h4><a href="posts-{dados_index["a2"]["secao"]}/{dados_index["a2"]["titulo"].replace(" ", "_").lower() + ".html"}">{dados_index["a2"]["titulo"]}</a></h4>
-					{markdown.markdown(dados_index["a2"]["sinopse"])}
-					<a href="posts-{dados_index["a2"]["secao"]}/{dados_index["a2"]["titulo"].replace(" ", "_").lower() + ".html"}" class="read-more">Ver Mais</a>
-				</article>
-				<article id=a3>
-					<h4><a href="posts-{dados_index["a3"]["secao"]}/{dados_index["a3"]["titulo"].replace(" ", "_").lower() + ".html"}">{dados_index["a3"]["titulo"]}</a></h4>
-					{markdown.markdown(dados_index["a3"]["sinopse"])}
-					<a href="posts-{dados_index["a3"]["secao"]}/{dados_index["a3"]["titulo"].replace(" ", "_").lower() + ".html"}" class="read-more">Ver Mais</a>
-				</article>
-				<article id=a4>
-					<h4><a href="posts-{dados_index["a4"]["secao"]}/{dados_index["a4"]["titulo"].replace(" ", "_").lower() + ".html"}">{dados_index["a4"]["titulo"]}</a></h4>
-					{markdown.markdown(dados_index["a4"]["sinopse"])}
-					<a href="posts-{dados_index["a4"]["secao"]}/{dados_index["a4"]["titulo"].replace(" ", "_").lower() + ".html"}" class="read-more">Ver Mais</a>
-				</article>
-			</section>
-		</main>
-		<div id="footer-placeholder"></div>
-		<script src="scripts.js"></script>
-	</body>
-</html>
-'''
+    posts = []
+    for posicao in range(1, 5):
+        artigo = dados_index[f"a{posicao}"]
+        post = f'''				<article id="a{posicao}">
+					<h4><a href="/posts-{artigo["secao"]}/{artigo["titulo"].replace(" ", "_").lower() + ".html"}">{artigo["titulo"]}</a></h4>
+					{markdown.markdown(artigo["sinopse"])}
+					<a href="/posts-{artigo["secao"]}/{artigo["titulo"].replace(" ", "_").lower() + ".html"}" class="read-more" aria-label="Ver Mais sobre {artigo["titulo"]}">Ver Mais</a>
+				</article>'''
+        posts.append(post)
+
+    texto_posts = "\n".join(posts)
+
+    with open('../header.html', 'r', encoding='utf-8') as f:
+        html_header = f.read()
+    with open('../footer.html', 'r', encoding='utf-8') as f:
+        html_footer = f.read()
+    with open('templates/index.html', 'r', encoding='utf-8') as f:
+        template = f.read()
+
+    html = template.format(
+        descricao=dados_index["descricao"],
+        titulo=dados_index["titulo"],
+        texto_corpo=texto_corpo,
+        texto_posts=texto_posts,
+        header=html_header,
+        footer=html_footer
+    )
 
     with open("../index.html", 'w', encoding='utf-8') as f:
         f.write(html)
@@ -139,49 +112,32 @@ def gerar_pag_post(artigos, secao):
     posts = []
     
     for posicao, artigo in enumerate(artigos, 1):
-        post = f'''				<article id=a{posicao}>
-					<h4><a href="posts-{artigo["secao"]}/{artigo["titulo"].replace(" ", "_").lower() + ".html"}">{artigo["titulo"]}</a></h4>
+        post = f'''				<article id="a{posicao}">
+					<h4><a href="/posts-{artigo["secao"]}/{artigo["titulo"].replace(" ", "_").lower() + ".html"}">{artigo["titulo"]}</a></h4>
 					{markdown.markdown(artigo["sinopse"])}
-					<a href="posts-{artigo["secao"]}/{artigo["titulo"].replace(" ", "_").lower() + ".html"}" class="read-more">Ver Mais</a>
+					<a href="/posts-{artigo["secao"]}/{artigo["titulo"].replace(" ", "_").lower() + ".html"}" class="read-more" aria-label="Ver Mais sobre {artigo["titulo"]}">Ver Mais</a>
 				</article>'''
         posts.append(post)
 
     texto_posts = "\n".join(posts)
 
-    html = f'''<!DOCTYPE html>
-<html lang="pt-BR">
-	<head>
-		<title>Leão Bordado</title>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-		<link rel="icon" type="image/png" href="/favicon.png">
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-		<link rel="manifest" href="/manifest.json">
-		<link rel="preload stylesheet" href="style.css" as="style">
-		<link rel="preconnect stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="{dados_pag["descricao"]}">
-		<meta name="author" content="Leonardo Sander Stüker">
-	</head>
-	<body>
-		<div id="header-placeholder"></div>
-		<main id="main-content">
-			<div class="hero-banner">
-				<h2>{dados_pag["titulo"]}</h2>
-			</div>
-			<article >
-				<h4>{dados_pag["subtitulo"]}</h4>
-				{texto_corpo}
-			</article>
-			<section class="posts_recentes">
-				<h3>Posts Recentes</h3>
-{texto_posts}
-			</section>
-		</main>
-		<div id="footer-placeholder"></div>
-		<script src="scripts.js"></script>
-	</body>
-</html>'''
+    with open('../header.html', 'r', encoding='utf-8') as f:
+        html_header = f.read()
+    with open('../footer.html', 'r', encoding='utf-8') as f:
+        html_footer = f.read()
+    with open('templates/secao.html', 'r', encoding='utf-8') as f:
+        template = f.read()
+
+    html = template.format(
+        titulo=dados_pag["titulo"],
+        subtitulo=dados_pag["subtitulo"],
+        descricao=dados_pag["descricao"],
+        url_path=f"{secao}.html",
+        texto_corpo=texto_corpo,
+        texto_posts=texto_posts,
+        header=html_header,
+        footer=html_footer
+    )
 
     with open(f"../{secao}.html", 'w', encoding='utf-8') as f:
         f.write(html)
@@ -211,5 +167,3 @@ secoes = sorted(posts_por_secao.keys())
 
 for secao in secoes:
     gerar_pag_post(posts_por_secao[secao], secao)
-
-

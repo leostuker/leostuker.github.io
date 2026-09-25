@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 	<head>
-		<title>Leão Bordado - Computação</title>
-		<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-		<link rel="icon" type="image/png" href="../favicon.png">
-		<link rel="apple-touch-icon" href="../apple-touch-icon.png">
-		<link rel="manifest" href="../manifest.json">
-		<link rel="preload stylesheet" href="../style.css" as="style">
-		<link rel="preconnect stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
+		<title>Grimório das magias de D&D - Computação</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+		<link rel="icon" type="image/png" href="/favicon.png">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="manifest" href="/manifest.json">
+		<link rel="stylesheet" href="/style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="canonical" href="https://leonardo.stuker.nom.br/posts-codes/grimório_das_magias_de_d&d.html">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Postagem sobre meu banco de dados das magias de D&D em português.">
 		<meta name="author" content="Leonardo Sander Stüker">
+		<meta property="og:title" content="Grimório das magias de D&D - Computação">
+		<meta property="og:description" content="Postagem sobre meu banco de dados das magias de D&D em português.">
+		<meta property="og:type" content="article">
+		<meta property="og:url" content="https://leonardo.stuker.nom.br/posts-codes/grimório_das_magias_de_d&d.html">
 	</head>
 	<body>
-		<div id="header-placeholder"></div>
-		<main>
+		<header>
+	<h1>Leonardo Stüker</h1>
+	<nav>
+		<ul>
+			<li><a href="/index.html">Home</a></li>
+			<li><a href="/sobre.html">Sobre mim</a></li>
+			<li><a href="/fotos.html">Fotografias</a></li>
+			<li><a href="/codes.html">Computação</a></li>
+			<li><a href="/rpg.html">RPG</a></li>
+			<li><a href="/redes.html">Redes</a></li>
+		</ul>
+	</nav>
+</header>
+
+		<main id="main-content">
 			<div class="hero-banner">
 				<h2>Computação</h2>
 			</div>
-			<main id="main-content">
 			<article>
-				<h4>Grimório das magias de D&D</h4>
+				<h1>Grimório das magias de D&D</h1>
 				<p>Com o início da cadeira de Banco de Dados Geográficos, comecei a ler sobre bancos de dados e quis construir um banco para experimentar algumas coisas e me familiarizar com os conceitos. Simultaneamente, precisei separar as magias de bardo de terceiro círculo, o que foi uma tarefa bastante trabalhosa. Então, unindo o útil ao agradável, pensei em criar um banco de dados com todas as magias presentes no Livro do Jogador de 2024, pois havia um documento markdown fornecido pelo grupo <a href="https://sites.google.com/view/heroisanonimos/ldj-2024">Heróis Anônimos</a>, que traduziu todo o livro para o português, incluindo as magias presentes nele.</p>
 				<p>Iniciei o projeto montando uma stack Docker contendo o PostgreSQL e o Adminer. Esse setup me permitiu criar o banco de dados com uma interface simples e funcional, mas também através de comandos SQL, facilitando o desenvolvimento das habilidades necessárias para a cadeira. Criei, assim, um pequeno banco de dados formado por 5 tabelas e alguns tipos ENUM personalizados.</p>
 				<p>A principal é a tabela de magias, que contém quase todas as características que uma magia pode ter, como nome, círculo e duração. Além dessas características comuns, há também algumas mais específicas, como se gera uma salvaguarda e, caso sim, qual o atributo. Além dela, há também uma tabela com os livros para poder diferenciar magias "iguais" de origens diferentes, uma tabela de classes, uma tabela relacional de quais classes conjuram quais magias e, por fim, uma tabela sobre quais tipos de dano elas causam.</p>
@@ -30,7 +49,11 @@
 				<p>Atualmente, hospedo o projeto no meu servidor doméstico, fornecendo acesso pelo <a href="https://grimorio.leonardo.stuker.nom.br">grimorio.leonardo.stuker.nom.br</a>, sendo intermediado pelo Cloudflare Tunnel. Não vejo necessidade de algum serviço mais robusto em nenhum cenário que não seja por pura experimentação.</p>
 			</article>
 		</main>
-		<div id="footer-placeholder"></div>
-		<script src="../scripts.js"></script>
+		<footer>
+    <p><a href="mailto:contato@leonardo.stuker.nom.br">contato@leonardo.stuker.nom.br</a> | <a href="https://wa.me/5551989313313" target="_blank" rel="noopener noreferrer">+55 51 989-313-313</a></p>
+    <p>&copy; 2026 Leonardo Stüker. Todos os direitos reservados.</p>
+</footer>
+
+		<script src="/scripts.js"></script>
 	</body>
 </html>
