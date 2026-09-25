@@ -101,6 +101,7 @@ main {
 	margin: auto;
 }
 
+.posts_recentes h2,
 .posts_recentes h3 {
 	color: #e0e0e0;
 	text-align: center;
@@ -123,6 +124,7 @@ article a {
 	text-decoration: none;
 }
 
+article h1,
 article h4 {
 	color: #e0e0e0;
 	text-align: center;
@@ -132,6 +134,7 @@ article h4 {
 	border-bottom: 2px solid #FFD700;
 }
 
+article h1 a,
 article h4 a {
 	color: inherit;
 	text-decoration: none;
