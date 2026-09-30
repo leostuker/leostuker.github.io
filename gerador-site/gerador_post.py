@@ -124,6 +124,19 @@ def gerar_post(entrada):
         f.write(html)
 
     print(dados["secao"], "\t",nome_arquivo)
+    
+    # Renomeia o arquivo .md original para ficar igual ao nome do .html gerado
+    novo_nome_md = dados["titulo"].replace(" ", "_").lower() + ".md"
+    novo_caminho_md = os.path.join(os.path.dirname(entrada), novo_nome_md)
+    if str(entrada) != novo_caminho_md:
+        try:
+            os.rename(entrada, novo_caminho_md)
+            print(f"Renomeado: {os.path.basename(entrada)} -> {novo_nome_md}")
+        except Exception as e:
+            print(f"Erro ao renomear {entrada}: {e}")
+            
+    if dados["data"] == "":
+        dados["data"] = date.today().strftime("%d/%m/%Y")
         
     return dados
 
@@ -140,7 +153,7 @@ print("\nPosts:\nSeção\t Post")
 
 zerar_dados()
 
-for arquivo in Path("../").glob('posts-*/**/*.md'):
+for arquivo in list(Path("../").glob('posts-*/**/*.md')):
     dados = gerar_post(arquivo)
     del dados['corpo'], dados['carousel']
     salvar_dados(dados)
